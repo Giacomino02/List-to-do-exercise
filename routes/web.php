@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ListContainerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::prefix('list')->group(function(){
+    Route::post('/', [ListContainerController::class, 'create']);
+    Route::get('/', [ListContainerController::class, 'read']);
+    Route::patch('/{list}', [ListContainerController::class, 'update']);
+    Route::delete('/{list}', [ListContainerController::class, 'delete']);
+    Route::get('/create', [ListContainerController::class, 'createView']);
+
 });

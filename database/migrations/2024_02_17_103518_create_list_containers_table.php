@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('list_containers', function (Blueprint $table) {
             $table->id();
+            $table->string('activity');
+            $table->boolean('check');
             $table->timestamps();
         });
     }
