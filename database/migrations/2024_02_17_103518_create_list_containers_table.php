@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('activity');
             $table->boolean('check');
+            $table->integer('position');
             $table->timestamps();
         });
     }

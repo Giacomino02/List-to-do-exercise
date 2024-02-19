@@ -13,12 +13,14 @@ class ListContainerController extends Controller
         $list = new ListContainer();
         $list->activity = $request->input('activity');
         $list->check = $request->input('check')? true:false;
+        $list->position = $request->input('position');
         $list->save();
     }
 
     public function read(Request $request){
         // il metodo all del modello mi restituisce una collection (una specie di array), è una classe
-        $lists = ListContainer::all();
+        // query builder (classe)
+        $lists = ListContainer::query()->orderBy('position', 'asc')->get();
         return view('listContainerView', [
             "lists" => $lists
         ]);

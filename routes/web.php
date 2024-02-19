@@ -24,5 +24,4 @@ Route::prefix('list')->group(function(){
     Route::patch('/{list}', [ListContainerController::class, 'update']);
     Route::delete('/{list}', [ListContainerController::class, 'delete']);
     Route::get('/create', [ListContainerController::class, 'createView']);
-
 });
